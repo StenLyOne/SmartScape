@@ -1,0 +1,335 @@
+.benefits-container {
+  background-color: var(--black);
+}
+
+.benefits-content {
+  margin-top: 10px;
+}
+
+.benefits-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #1c1c1c;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  transition: all 0.3s ease; /* Плавный переход для padding */
+  position: relative;
+}
+
+.benefits-item:last-child {
+  border: 0;
+}
+
+.benefits-item.activ {
+  padding-bottom: 70px;
+  padding-top: 70px;
+  transition: all 0.5s ease;
+}
+
+.benefits-item-text {
+  width: 40.4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s ease; /* Плавный переход для ширины */
+  z-index: 1;
+  align-items: flex-start;
+}
+
+.benefits-item-img {
+  width: 23.34%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative; /* Для размещения свечения внутри контейнера */
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.benefits-item-img.activ {
+  width: 50%;
+}
+
+.benefits-item-img img {
+  max-height: 200px; /* Оставляем фиксированную высоту */
+  object-fit: cover;
+  transition: all 0.5s ease; /* Плавный переход */
+}
+
+.benefits-item-img.activ img {
+  max-height: 400px;
+  transition: all 0.5s ease;
+}
+
+.benefits-blur {
+  transform: translate(10%, -40%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.benefits-blur.activ {
+  transform: translate(-20%, -40%);
+  opacity: 1; /* Делаем свечение видимым */
+}
+
+.benefits-big-blur div {
+  position: absolute;
+  width: 65%;
+  height: 65%;
+  top: 50%;
+  transform: translate(-20%, -70%);
+  left: 50%;
+  transform: translate(-20%, -70%);
+  filter: blur(95px);
+  background-color: #abb2b2;
+  z-index: 1;
+}
+
+.benefits-small-blur div {
+  position: absolute;
+  width: 55%;
+  height: 55%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -70%);
+  filter: blur(50px);
+  background-color: #abb2b2;
+  z-index: 1;
+}
+
+.benefits-item-text h3.activ {
+  font-size: 40px;
+  line-height: 50.3px;
+  font-weight: 400;
+  transition: all 0.5s ease;
+}
+
+.benefits-item-anim {
+  display: flex;
+  position: relative;
+  font: inherit;
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.benefits-item-anim::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -10%;
+  left: 0;
+  border-radius: 100px;
+  background-color: var(--accent);
+  transform: scaleX(0); /* Начальное состояние */
+  transform-origin: bottom right;
+  transition: transform 0.5s ease; /* Плавный переход */
+  box-shadow: 0 2px 10px rgba(109, 175, 125, 0.16),
+    0 3px 6px rgba(109, 175, 125, 0.16);
+}
+
+.benefits-item-anim.activ::after {
+  transform: scaleX(1); /* Заполнение по ширине */
+  transform-origin: bottom left;
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 20px;
+  list-style: none; /* Убираем стандартные маркеры */
+  animation: fadeIn 0.4s ease-in-out; /* Минималистичная анимация */
+}
+
+.benefits-list-item {
+  color: var(--white);
+  font-size: 28px;
+  line-height: 25.2px;
+  font-weight: 400;
+  opacity: 0;
+  position: relative;
+  padding-left: 20px; /* Отступ для точки */
+  transform: translateY(10px); /* Начальное положение */
+  animation: listItemFadeIn 0.3s ease-in-out forwards; /* Плавное появление */
+}
+
+/* Указываем задержку для последовательного появления каждого пункта */
+.benefits-list-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.benefits-list-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.benefits-list-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.benefits-list-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.benefits-list-item::before {
+  content: ""; /* Пустое содержание для точки */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px; /* Размер точки */
+  height: 7px; /* Размер точки */
+  background-color: var(--accent); /* Акцентный цвет точки */
+  border-radius: 50%; /* Делает точку круглой */
+}
+
+@keyframes listItemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* Легкое смещение вниз */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Возврат на место */
+  }
+}
+
+@media (max-width: 1200px) {
+  .benefits-item {
+    gap: 50px;
+  }
+
+  .benefits-item-img {
+    width: 30%;
+    height: 100%;
+  }
+
+  .benefits-item-img.activ {
+    width: 50%;
+    height: 100%;
+    flex: 1;
+  }
+
+  .benefits-item-text {
+    gap: 25px;
+  }
+
+  .benefits-list {
+    padding-left: 15px;
+  }
+
+  .benefits-list-item {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .benefits-item-img.activ {
+    width: 40%;
+    height: 100%;
+    flex: 1;
+  }
+
+  .benefits-blur.activ {
+    transform: translate(-20%, -50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-item {
+    flex-direction: column-reverse;
+  }
+
+  .benefits-item-text {
+    width: 100%;
+  }
+
+  .benefits-item {
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+
+  .benefits-item.activ {
+    padding-bottom: 50px;
+    padding-top: 50px;
+    transition: all 0.5s ease;
+  }
+
+  .benefits-blur.activ {
+    transform: translate(-60%, -100%);
+    height: 30%;
+  }
+
+  .benefits-blur {
+    transform: translate(-60%, -100%);
+    height: 30%;
+  }
+
+ 
+
+  .benefits-item {
+    display: flex;
+    align-items: stretch; /* Растягиваем по ширине */
+    gap: 30px; /* Расстояние между блоками */
+  }
+
+  .benefits-item-text {
+    flex-shrink: 0; /* Фиксируем текстовый блок, чтобы не сжимался */
+    max-width: 100%; /* Убедимся, что текст занимает максимум доступного пространства */
+  }
+
+  .benefits-item-img {
+    flex-grow: 1; /* Контейнер изображения растягивается на всё свободное пространство */
+    width: 100%; /* Занимает всю ширину */
+    height: auto; /* Автоматическая высота */
+    overflow: hidden; /* Скрывает выходящее содержимое */
+  }
+
+  .benefits-item-img.activ {
+    flex-grow: 1; /* Контейнер изображения растягивается на всё свободное пространство */
+    width: 100%; /* Занимает всю ширину */
+    height: auto; /* Автоматическая высота */
+    overflow: hidden; /* Скрывает выходящее содержимое */
+  }
+
+  .benefits-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .benefits-item-img.activ img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .benefits-blur.activ {
+    transform: translate(-60%, -130%);
+    height: 30%;
+  }
+
+  .benefits-blur {
+    transform: translate(-60%, -130%);
+    height: 30%;
+  }
+}
+
+@media (max-width: 420px) {
+  .benefits-blur.activ {
+    transform: translate(-60%, -130%);
+    height: 30%;
+  }
+
+  .benefits-blur {
+    transform: translate(-60%, -130%);
+    height: 30%;
+  }
+}

@@ -1,0 +1,72 @@
+.partners-container {
+  background-color: var(--black);
+  overflow: hidden; /* Скрываем элементы за пределами контейнера */
+  padding: 0;
+  width: 100%;
+  max-width: 1410px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+  margin-top: 10px;
+  border: 30px solid var(--black);
+}
+
+.partners-content {
+  margin: 80px 0 80px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.partners-scroll {
+  display: flex;
+  gap: 80px;
+  animation: scroll-right 100s linear infinite; /* Анимация */
+}
+
+.partner-logo {
+  flex: 0 0 auto; /* Логотипы не сжимаются */
+}
+
+.partner-logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Анимация движения вправо */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0); /* Начальное положение */
+  }
+  100% {
+    transform: translateX(-50%); /* Движение на половину длины списка */
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-container {
+    border-radius: 10px; /* Уменьшаем радиус для компактности */
+    border: 20px solid var(--black);
+  }
+
+  .partners-content {
+    margin: 30px 0; /* Уменьшаем вертикальные отступы */
+  }
+
+  .partners-scroll {
+    gap: 20px; /* Уменьшаем расстояние между логотипами */
+    animation: scroll-right 80s linear infinite; /* Ускоряем анимацию для меньших экранов */
+  }
+
+  .partner-logo {
+    width: 15%; /* Делаем логотипы меньше */
+    flex: 0 0 15%; /* Логотипы остаются фиксированного размера */
+  }
+
+  .partner-logo img {
+    max-width: 100%; /* Логотипы занимают всю ширину контейнера */
+    height: auto; /* Сохраняем пропорции */
+    object-fit: contain; /* Гарантируем, что логотипы остаются в пределах контейнера */
+  }
+}

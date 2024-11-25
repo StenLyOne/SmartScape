@@ -1,0 +1,141 @@
+.smarter-container {
+  background-color: var(--black);
+}
+
+.smarter-img-wraper {
+  width: 66.297%;
+  margin: 100px 0 50px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.smarter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.smarter-text {
+  width: 66.297%;
+  display: flex;
+  gap: 30px;
+}
+
+.smarter-text-left,
+.smarter-text-right {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 50%;
+}
+
+.smarter-container .line {
+  margin: 70px 0 30px;
+}
+
+/* team */
+
+.team-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три колонки одинаковой ширины */
+  grid-template-rows: repeat(2, auto); /* Две строки с автоматической высотой */
+  gap: 30px; /* Промежуток между карточками */
+  width: 100%;
+  justify-items: center; /* Выравнивание карточек по центру */
+  margin-top: 100px;
+}
+
+.team-item {
+  position: relative;
+  background-color: var(--dop);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ширина карточек в процентах от колонки */
+}
+
+.team-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  /* height: calc(100% + 130px); */
+}
+
+.team-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: all 0.4s ease; /* Добавляем плавность для изображения */
+}
+
+.team-item:hover img {
+  transform: scale(1.1); /* Легкое увеличение изображения при наведении */
+  height: 100%;
+  transition: all 0.4s ease;
+}
+
+.team-item-text {
+  width: 100%;
+  
+  padding: 32px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: all 0.4s ease; /* Добавляем плавность для текста */
+  background-color: rgba(28, 28, 28, 0.8);
+}
+
+.team-item:hover .team-item-text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(28, 28, 28, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.4s ease; /* Плавный переход */
+}
+
+.team-item-text .team-item-caption {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Добавляем плавность для описания */
+}
+
+/* Показываем описание при наведении */
+.team-item:hover .team-item-caption {
+  display: block;
+  opacity: 1;
+  transform: translateY(0); /* Плавный эффект появления */
+}
+
+.team-item:hover .team-item-role {
+  color: var(--accent);
+  text-shadow: 1px 1px 2px rgba(109, 175, 125, 0.7); /* Тень для улучшения читаемости */
+}
+
+@media (max-width: 880px) {
+  .team-content {
+    grid-template-columns: repeat(2, 1fr); /* Две колонки на меньших экранах */
+    grid-template-rows: auto; /* Высота строк определяется содержимым */
+  }
+}
+
+@media (max-width: 768px) {
+  .team-content {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 550px) {
+  .team-content {
+      grid-template-columns: 1fr; /* Одна колонка */
+      grid-auto-rows: auto; /* Фиксированная высота строк */
+  }
+}

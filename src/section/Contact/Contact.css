@@ -1,0 +1,174 @@
+.contact-container {
+  background-color: var(--accent);
+}
+
+.contact-container h3 {
+  color: var(--black);
+  max-width: 545px;
+}
+
+.contact-container .title {
+  color: var(--black);
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 80px;
+}
+
+.contact-content-left {
+  flex: 1;
+}
+
+.contact-content-right {
+  flex: 1;
+}
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition: opacity 0.5s ease;
+}
+
+.contact-form-wrap {
+  width: 100%;
+}
+
+.contact-form-wrap.submitted {
+  opacity: 0; /* Делаем форму прозрачной при успешной отправке */
+  pointer-events: none; /* Отключаем взаимодействие */
+}
+
+.success-message {
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 70%;
+}
+
+.success-message p {
+  color: var(--black);
+  opacity: 1;
+}
+
+.input-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: 45px;
+}
+
+form {
+  max-width: 545px;
+}
+
+input {
+  width: 100%;
+  padding: 0px 0px 15px;
+  font-size: 16px;
+  border: 0;
+  border-bottom: 1px solid var(--black);
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: "Source Sans 3", sans-serif;
+  background-color: var(--accent);
+  color: var(--black);
+  caret-color: var(--black);
+}
+
+input.error {
+  border-color: red;
+}
+
+input::placeholder {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--black); /* Или #000, если нет переменной */
+  opacity: 1; /* Убираем прозрачность, если нужно */
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  position: absolute;
+}
+
+.contact-submit {
+  padding: 20px 67px;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: var(--black);
+  color: var(--accent);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden; /* Скрываем всё, что выходит за границы кнопки */
+  position: relative; /* Для правильной работы ::after */
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавное увеличение и тени */
+}
+
+.contact-submit::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 120%; /* Ширина заливки */
+  height: 100%;
+  background-color: var(--white);
+  z-index: 0;
+  transform: translate(-50%, 100%); /* Начальная позиция вне кнопки */
+  transition: transform 0.5s ease; /* Плавный переход позиции */
+  border-radius: 50px 50px 0 0; /* Скругляем верхние углы */
+}
+
+.contact-submit:hover::after {
+  transform: translate(-50%, 0); /* Заливка заполняет всю кнопку */
+}
+
+.contact-submit:hover {
+  color: var(--accent); /* Меняем цвет текста при наведении */
+  transform: scale(1.05); /* Легкое увеличение кнопки */
+}
+
+.contact-submit:focus {
+  outline: none;
+}
+
+.contact-submit span {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1; /* Текст всегда выше заливки */
+  transition: color 0.3s ease; /* Плавный переход цвета текста */
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .contact-content-right {
+    width: 100%;
+  }
+}

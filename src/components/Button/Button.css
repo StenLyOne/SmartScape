@@ -1,0 +1,66 @@
+.button {
+  font-size: 17px;
+  text-transform: uppercase;
+  padding: 20px 111px;
+  border: 0px solid var(--accent);
+  border-radius: 100px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+  overflow: hidden; /* Скрываем всё, что выходит за границы кнопки */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавное увеличение и тени */
+  z-index: 1;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  width: 0%;
+  transform: translate(-50%, 110%);
+  height: 100%;
+  background-color: var(--accent);
+  z-index: 0;
+  transition: all 0.5s ease;
+  border-radius: 50px 50px 0 0;
+  border: 0;
+}
+
+.button:hover::after {
+  width: 120%;
+  transform: translate(
+    -50%,
+    -0%
+  ); /* Заливка заполняет всю кнопку слева направо */
+}
+
+.button:hover {
+  color: var(--white); /* Меняем цвет текста при наведении */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Добавляем акцент тени */
+  transform: scale(1.02); /* Легкое увеличение кнопки */
+}
+
+.button:focus {
+  outline: none;
+}
+
+.span {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 3; /* Текст всегда выше заливки */
+  transition: color 0.3s ease; /* Плавный переход цвета текста */
+}
+
+@media (max-width: 480px) {
+  .button {
+    width: 100%;
+    padding: 20px 0;
+  }
+}

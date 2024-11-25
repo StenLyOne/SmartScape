@@ -1,0 +1,81 @@
+.how-container {
+  background-color: var(--black);
+}
+
+.how-btn-wraper {
+  display: flex;
+  gap: 20px;
+}
+
+.how-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.how-btn-left {
+  cursor: pointer;
+  width: 32px;
+}
+
+.how-btn-right {
+  transform: rotate(180deg); /* Поворот при наведении */
+  cursor: pointer;
+  width: 32px;
+}
+
+.how-btn-right:hover img,
+.how-btn-left:hover img {
+  opacity: 0.8;
+  fill: blue;
+}
+
+.how-content-main {
+  width: 77.78%;
+  margin-top: 30px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  opacity: 0;
+  transform: translateY(8px); /* Легкое смещение вниз */
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+}
+
+.how-content-main.active {
+  opacity: 1;
+  transform: translateY(0); /* Возвращаем на место */
+}
+
+.how-img-wraper {
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(1); /* Уменьшение */
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.how-img-wraper.active {
+  opacity: 1;
+  transform: scale(1); /* Возвращаем исходный размер */
+}
+
+.circle {
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+
+.circle-container {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-140%, 50%);
+}
+
+@media (max-width: 1024px) {
+  .how-content-main {
+    width: 100%;
+  }
+}

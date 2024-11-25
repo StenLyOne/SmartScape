@@ -1,0 +1,216 @@
+.main-wraper {
+  width: 100%;
+}
+
+/*//////// main */
+
+main {
+  border-radius: 20px;
+}
+
+.main-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--black);
+  position: relative;
+}
+
+.main-text {
+  text-align: center;
+  z-index: 2;
+}
+
+.main-btn {
+  z-index: 9;
+}
+
+.main-text p {
+  margin: 30px 0 50px;
+}
+
+.main-text h1 {
+  background: linear-gradient(
+    to bottom,
+    /* Градиент сверху вниз */ rgba(255, 255, 255, 1) 0%,
+    /* Прозрачность сверху */ rgba(90, 142, 103, 1) 100%
+      /* Полностью окрашенный снизу */
+  );
+  -webkit-background-clip: text; /* Применяем градиент только к тексту */
+  -webkit-text-fill-color: transparent; /* Делаем текст прозрачным */
+  background-clip: text; /* Для других браузеров */
+  color: transparent; /* Перестраховка для кроссбраузерности */
+}
+
+.main-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Контейнер во всю ширину */
+  height: 100%; /* Контейнер во всю высоту */
+  overflow: hidden; /* Скрыть выходящие части */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.mask-container {
+  position: relative;
+}
+
+.small-orbit img {
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  z-index: 0;
+}
+
+.normal-orbit img {
+  position: absolute;
+  width: 57%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 0;
+}
+
+.big-orbit img {
+  position: absolute;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  z-index: 0;
+}
+
+.planet img {
+  position: absolute;
+  width: 1.6%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2200%, -30%);
+  z-index: 0;
+}
+
+.mask-gradient {
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: 0; /* Привязываем к нижней части */
+  left: 0; /* Привязываем к левой стороне */
+  width: 100%; /* На всю ширину */
+  height: 30%; /* Высота 10% от родителя */
+  background: linear-gradient(
+    to top,
+    /* Направление градиента */ rgba(15, 15, 15, 1) 0%,
+    /* Чёрный цвет снизу */ rgba(0, 0, 0, 0) 100% /* Прозрачный сверху */
+  );
+  z-index: 3;
+  border-radius: 20px;
+}
+
+.big-blur img {
+  position: absolute;
+  width: 35%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%) scale(1);
+  filter: blur(195px);
+  z-index: 1;
+  animation: top 5s infinite alternate; /* Бесконечная анимация */
+  animation-delay: 3s; /* Задержка 3 секунды */
+}
+
+.mask-blur div img {
+  opacity: 0;
+}
+
+.small-blur img {
+  position: absolute;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%) scale(1);
+  filter: blur(90px);
+  z-index: 1;
+  animation: bot 5s infinite alternate; /* Бесконечная анимация */
+  animation-delay: 3s; /* Задержка 3 секунды */
+}
+
+@keyframes bot {
+  0% {
+    transform: translate(-50%, 20%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, 25%) scale(0.9);
+    box-shadow: 0 0 30px rgba(90, 142, 103, 1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, 20%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes top {
+  0% {
+    transform: translate(-50%, 0%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, 0%) scale(0.9);
+    opacity: 0.9;
+    box-shadow: 0 0 30px rgba(90, 142, 103, 1);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+    height: 70vh;
+  }
+
+  .small-orbit img {
+    width: 50%;
+  }
+
+  .normal-orbit img {
+    width: 67%;
+  }
+
+  .big-orbit img {
+    width: 85%;
+  }
+
+  .planet img {
+    position: absolute;
+    width: 1.6%;
+  }
+
+  .mask-gradient {
+    width: 100%; 
+    height: 40%;
+  }
+
+  .big-blur img {
+    width: 45%;
+  }
+
+  .small-blur img {
+    width: 35%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-btn {
+    width: 100%;
+  }
+}
