@@ -104,4 +104,8 @@
   .inpact-text h3 {
     margin: 25px 0 20px;
   }
+  
+  .inpact-text {
+    width: 80%;
+  }
 }
